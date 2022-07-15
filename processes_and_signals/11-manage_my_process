@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Indefinitely writes I am alive! to the file /tmp/my_process. In between every I am alive! message, the program should pause for 2 seconds. Write Bash (init) script 11-manage_my_process that manages manage_my_process.
+# Write Bash (init) script 11-manage_my_process that manages manage_my_process.
 
 if [ "$1" == "start" ]; then
     ./manage_my_process &
-    echo "$!" > manage_my_process/
+    echo "$!" > /var/run/my_process.pid
     echo "manage_my_process started"
 elif [ "$1" == "stop" ]; then
     kill "$(cat /var/run/my_process.pid)"
